@@ -16,7 +16,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
            - name: MySQL fetch
-             if: ${{ github.event.inputs.MySQL == 'true' }}
+             if: $${{ github.event.inputs.MySQL == 'true' }}
              run: echo "I will retrieve data from MySQL"
            - name: PostgreSQL fetch
              if: ${{ github.event.inputs.PostgreSQL == 'true' }}
@@ -30,5 +30,5 @@ jobs:
               echo "The name of event is = ${{ github.event_name }}" 
               echo "Commit SHA is = ${{ github.sha }}"
               echo "Runners is = ${{ runner.os }}"
-              
+
 
