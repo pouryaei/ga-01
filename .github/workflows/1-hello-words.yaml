@@ -11,7 +11,7 @@ jobs:
     second-job:
         runs-on: ubuntu-latest
         steps:
-            - name: Print say hi to you
+            - name: Print say hi to you again
               run: echo "Say hi to you"
 
 
