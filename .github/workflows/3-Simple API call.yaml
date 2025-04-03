@@ -23,7 +23,7 @@ jobs:
           TIMESTAMP=$(date +%s)
           OUTPUT_FILE="stage/${TIMESTAMP}.csv"
           mkdir -p stage
-          curl -s --compressed -H "User-Agent: Chrome/123.0" https://old.tsetmc.com/tsev2/data/MarketWatchInit.aspx?h=0 | jq '.'> $OUTPUT_FILE
+          curl -s --compressed -H "User-Agent: Chrome/123.0" https://api.coinlore.net/api/tickers/ | jq -r '.data[] | [.id, .symbol, .name, .rank, .price_usd] | @csv'> $OUTPUT_FILE
           echo "Data saved to $OUTPUT_FILE"
 
       - name: Commit and push changes
